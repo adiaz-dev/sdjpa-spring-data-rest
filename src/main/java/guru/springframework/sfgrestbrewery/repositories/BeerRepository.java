@@ -8,8 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-
+@RepositoryRestResource(path = "beer", collectionResourceRel = "beer")
 public interface BeerRepository extends JpaRepository<Beer, UUID> {
     Page<Beer> findAllByBeerName(String beerName, Pageable pageable);
 
